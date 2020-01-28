@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.Assert;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -60,8 +61,9 @@ public class UserRepositoryTest extends TestApplicationTests {
     }
 
     @Test
+    @Transactional
     public void delete() {
-        Optional<User> user = userRepository.findById(1L);
+        Optional<User> user = userRepository.findById(3L);
 
         Assert.assertTrue(user.isPresent());
 
@@ -69,7 +71,7 @@ public class UserRepositoryTest extends TestApplicationTests {
             userRepository.delete(selectUser);
         });
 
-        Optional<User> deletedUser = userRepository.findById(1L); //check
+        Optional<User> deletedUser = userRepository.findById(3L); //check
 
         Assert.assertFalse(deletedUser.isPresent());
 
