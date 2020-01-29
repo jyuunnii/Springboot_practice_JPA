@@ -1,6 +1,7 @@
 package com.example.test.repository;
 
 import com.example.test.TestApplicationTests;
+import com.example.test.model.entity.Item;
 import com.example.test.model.entity.User;
 import com.sun.tools.classfile.Dependency;
 import org.junit.jupiter.api.Test;
@@ -39,11 +40,14 @@ public class UserRepositoryTest extends TestApplicationTests {
     }
 
     @Test
+    @Transactional
     public void read() {
-        Optional<User> user = userRepository.findById(4L); //id=2
+        Optional<User> user = userRepository.findById(4L);
 
         user.ifPresent(selectUser ->{
-            System.out.println("user: "+selectUser);
+            selectUser.getOrderDetailList().stream().forEach(detail -> {
+                System.out.println(detail.getItem());
+            });
         });
     }
 

@@ -1,10 +1,9 @@
 package com.example.test.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.processing.Generated;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +18,7 @@ import java.util.List;
 @Entity //==table
 @Table(name = "user")
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -38,4 +38,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderDetail> orderDetailList;
 }
