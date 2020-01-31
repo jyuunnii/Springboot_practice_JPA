@@ -30,25 +30,24 @@ public class UserRepositoryTest extends TestApplicationTests {
     public void create() {
         User user = new User();
         user.setAccount("testuser01");
+        user.setStatus("teststatus01");
         user.setEmail("testemail01");
+        user.setPassword("testpassword01");
         user.setCreatedAt(LocalDateTime.now());
         user.setCreatedBy("admin");
 
         User newUser = userRepository.save(user); //save 의 반환형도 User type
-        System.out.println("newUser: "+newUser);
+        Assert.assertNotNull(newUser);
 
     }
 
     @Test
     @Transactional
     public void read() {
-        Optional<User> user = userRepository.findByAccount("testuser01");
 
-        user.ifPresent(selectUser ->{
-            selectUser.getOrderDetailList().stream().forEach(detail -> {
-                System.out.println(detail.getItem());
-            });
-        });
+        User user = userRepository.findFirstByAccountOrderByIdDesc("testuser01");
+        Assert.assertNotNull(user);
+
     }
 
     @Test

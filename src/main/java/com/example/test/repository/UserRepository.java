@@ -9,6 +9,9 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User findFirstByAccountOrderByIdDesc(String phoneNumber);
+
+    //firstFirstBy : 1건에 대해 가장 최근 데이터 리턴
 
 }
 //User의 id datatype : Long
