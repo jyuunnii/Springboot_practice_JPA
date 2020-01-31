@@ -9,10 +9,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByAccount(String account); //1개
-
-    Optional<User> findByAccountAndEmail(String account, String email); //2개 이상
-
 
 }
 //User의 id datatype : Long

@@ -5,39 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Item {
+public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //mysql
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String status;
-
-    private String name;
+    private String type;
 
     private String title;
-
-    private String content;
-
-    private Integer price;
-
-    private String brandName;
-
-    private LocalDateTime registeredAt;
-
-    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
