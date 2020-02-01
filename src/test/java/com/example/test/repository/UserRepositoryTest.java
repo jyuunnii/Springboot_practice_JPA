@@ -29,15 +29,16 @@ public class UserRepositoryTest extends TestApplicationTests {
     @Test
     public void create() {
         User user = new User();
-        user.setAccount("testuser01");
-        user.setStatus("teststatus01");
-        user.setEmail("testemail01");
-        user.setPassword("testpassword01");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("admin");
+        user.setAccount("testuser02");
+        user.setStatus("teststatus02");
+        user.setEmail("testemail02");
+        user.setPassword("testpassword02");
+//        user.setCreatedAt(LocalDateTime.now());
+//        user.setCreatedBy("admin");
 
         User newUser = userRepository.save(user); //save 의 반환형도 User type
         Assert.assertNotNull(newUser);
+
 
     }
 
