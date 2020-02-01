@@ -20,7 +20,7 @@ public class ItemRepositoryTest extends TestApplicationTests {
         item.setPrice(20000);
         item.setStatus("teststatus01");
         item.setTitle("testtitle01");
-        item.setPartnerId(1L);
+//        item.setPartnerId(1L);
         item.setCreatedAt(LocalDateTime.now());
         item.setCreatedBy("testadmin");
 

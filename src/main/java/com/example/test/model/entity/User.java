@@ -3,6 +3,7 @@ package com.example.test.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,6 +20,7 @@ import java.util.List;
 @Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"orderGroupList"})
 public class User {
 
     @Id
@@ -47,4 +49,13 @@ public class User {
 
     private String updatedBy;
 
+    //user 1:n ordergroup
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
+
 }
+
+/*
+ JPA 의 장점 :
+ Query 를 계속 걸어서 select 해야하는 데이터를 jpa 연관관계 설정을 통해 객체를 활용하여 해당 값을 출력할 수 있음!
+ */

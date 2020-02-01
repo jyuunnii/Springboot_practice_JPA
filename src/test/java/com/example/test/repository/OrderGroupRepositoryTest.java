@@ -29,7 +29,7 @@ public class OrderGroupRepositoryTest extends TestApplicationTests {
         orderGroup.setOrderAt(LocalDateTime.now().minusDays(2));
         orderGroup.setCreatedAt(LocalDateTime.now());
         orderGroup.setCreatedBy("testadmin");
-        orderGroup.setUserId(1L);
+//        orderGroup.setUserId(1L);
 
         OrderGroup newOrderGroup = orderGroupRepository.save(orderGroup);
         Assert.assertNotNull(newOrderGroup);

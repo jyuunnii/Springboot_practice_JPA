@@ -21,7 +21,7 @@ public class PartnerRepositoryTest extends TestApplicationTests {
         partner.setAddress("testaddress01");
         partner.setCreatedAt(LocalDateTime.now());
         partner.setCreatedBy("testadmin");
-        partner.setCategoryId(1L);
+//        partner.setCategoryId(1L);
 
         Partner newPartner = partnerRepository.save(partner);
         Assert.assertNotNull(newPartner);

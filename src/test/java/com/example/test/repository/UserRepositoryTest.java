@@ -46,7 +46,21 @@ public class UserRepositoryTest extends TestApplicationTests {
     public void read() {
 
         User user = userRepository.findFirstByAccountOrderByIdDesc("testuser01");
-        Assert.assertNotNull(user);
+
+        user.getOrderGroupList().stream().forEach(o -> { // o : ordergroup
+            System.out.println("1) user x ordergroup 연관관계 : "+o.getArrivalDate());
+            o.getOrderDetailList().forEach(d -> {
+                System.out.println("2) ordergroup x orderdetail 연관관계 : "+d.getQuantity());
+                System.out.println("3) orderdetail x item 연관관계: "+ d.getItem().getName());
+                System.out.println("4) item x partner 연관관계 : "+ d.getItem().getPartner().getAddress());
+                System.out.println("5) partner x category 연관관계 : "+ d.getItem().getPartner().getCategory().getTitle());
+            });
+        });
+
+        /*
+         JPA 의 장점 :
+         Query 를 계속 걸어서 select 해야하는 데이터를 jpa 연관관계 설정을 통해 객체를 활용하여 해당 값을 출력할 수 있음!
+         */
 
     }
 
