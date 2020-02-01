@@ -36,10 +36,13 @@ public class UserRepositoryTest extends TestApplicationTests {
 //        user.setCreatedAt(LocalDateTime.now());
 //        user.setCreatedBy("admin");
 
-        User newUser = userRepository.save(user); //save 의 반환형도 User type
-        Assert.assertNotNull(newUser);
+//        User newUser = userRepository.save(user); //save 의 반환형도 User type
+//        Assert.assertNotNull(newUser);
 
+        User buildUser = User.builder().account("testuser03").password("testpassword03").status("teststatus03").build(); //입력하고 싶은 정보만 입력
 
+        User one = userRepository.save(buildUser);
+        Assert.assertNotNull(one);
     }
 
     @Test
