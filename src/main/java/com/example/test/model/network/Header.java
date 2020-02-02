@@ -33,7 +33,7 @@ public class Header<T> {
                                 .build();
     }
     //Data OK
-    public static <T>Header<T>  OK(T data){
+    public static <T>Header<T>  DataOK(T data){
         return (Header<T>) Header.builder().transactionTime(LocalDateTime.now())
                 .resultCode("OK")
                 .description("OK")

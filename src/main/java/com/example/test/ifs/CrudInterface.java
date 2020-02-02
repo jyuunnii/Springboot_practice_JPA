@@ -4,11 +4,11 @@ import com.example.test.model.network.Header;
 
 public interface CrudInterface<Req, Res> {
 
-    Header<Res> create(Req request); // todo 매개변수 추가
+    Header<Res> create(Header<Req> request); // todo 매개변수 추가
 
     Header<Res> read(Long id);
 
-    Header<Res> update(Req request);
+    Header<Res> update(Header<Req> request);
 
     Header delete(Long id);
 }
