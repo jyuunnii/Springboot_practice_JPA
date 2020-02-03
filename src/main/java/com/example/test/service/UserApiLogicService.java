@@ -101,13 +101,13 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
     private Header<UserApiResponse> response(User user){
 
         UserApiResponse userApiResponse = UserApiResponse.builder()
-                                                            .id(user.getId())
-                                                            .account(user.getAccount())
-                                                            .password(user.getPassword()) //todo 암호화, 길이 제한
-                                                            .status(user.getStatus())
-                                                            .registeredAt(user.getRegisteredAt())
-                                                            .unregisteredAt(user.getUnregisteredAt())
-                                                            .build();
+                                            .id(user.getId())
+                                            .account(user.getAccount())
+                                            .password(user.getPassword()) //todo 암호화, 길이 제한
+                                            .status(user.getStatus())
+                                            .registeredAt(user.getRegisteredAt())
+                                            .unregisteredAt(user.getUnregisteredAt())
+                                            .build();
 
         // response 완전체 : header + data
         return Header.DataOK(userApiResponse);
