@@ -52,9 +52,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
 
         // 2) user -> user-api-response return
         return optuser.map(u -> response(u)) //lambda
-                    .orElseGet( //에러처리
-                        ()-> Header.Error("no data")
-                    );
+                    .orElseGet(()-> Header.Error("no data")); //에러처리
     }
 
     @Override

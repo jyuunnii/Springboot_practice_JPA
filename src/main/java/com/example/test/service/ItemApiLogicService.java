@@ -71,8 +71,8 @@ public class ItemApiLogicService implements CrudInterface<ItemApiRequest, ItemAp
 
                     return entityItem;
                 })
-                .map(newEntityItem -> itemRepository.save(newEntityItem))
-                .map(i -> response(i))
+                .map(changeEntityItem -> itemRepository.save(changeEntityItem))
+                .map(newEntityItem -> response(newEntityItem))
                 .orElseGet(() -> Header.Error("no data"));
     }
 
